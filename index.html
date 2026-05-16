@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CheelyGram — Официальный сайт форка Telegram</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Иконки FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -25,15 +24,15 @@
         </div>
     </header>
 
-    <!-- Главный экран (Hero Section) -->
-    <section class="hero">
+    <!-- Главный экран -->
+    <section id="hero-section" class="hero editable-section">
         <div class="container hero-container">
             <div class="hero-text">
-                <span class="badge">Новое поколение мессенджеров</span>
-                <h1>Быстрее. Безопаснее. <br><span class="text-red">В красных тонах.</span></h1>
-                <p>CheelyGram — это продвинутый, кастомизированный форк Telegram с расширенными функциями и улучшенной приватностью.</p>
+                <span class="badge" data-edit-id="hero-badge">Новое поколение мессенджеров</span>
+                <h1 data-edit-id="hero-title">Быстрее. Безопаснее. <br><span class="text-red">В красных тонах.</span></h1>
+                <p data-edit-id="hero-desc">CheelyGram — это продвинутый, кастомизированный форк Telegram с расширенными функциями, улучшенной приватностью и уникальным дерзким стилем.</p>
                 <div class="hero-buttons">
-                    <a href="#download" class="btn btn-primary"><i class="fa-solid fa-download"></i> Скачать</a>
+                    <a href="#download" class="btn btn-primary"><i class="fa-solid fa-download"></i> Скачать сейчас</a>
                     <a href="https://github.com" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github"></i> Исходный код</a>
                 </div>
             </div>
@@ -41,130 +40,95 @@
                 <div class="mockup-phone">
                     <div class="mockup-header">
                         <i class="fa-solid fa-bars"></i>
-                        <span>CheelyGram Chat</span>
+                        <span data-edit-id="mockup-title">CheelyGram Chat</span>
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="mockup-body">
-                        <div class="message incoming">Привет! Как тебе CheelyGram?</div>
-                        <div class="message outgoing">Параша ещё та!</div>
-                        <div class="message incoming">Лучше скачаю аёграм</div>
+                        <div class="message incoming" data-edit-id="msg-1">Привет! Как тебе новый CheelyGram? 🔥</div>
+                        <div class="message outgoing" data-edit-id="msg-2">Это лучший форк! Скорость работы и красный интерфейс просто космос! 🚀</div>
+                        <div class="message incoming" data-edit-id="msg-3">И функций для кастомизации гораздо больше!</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Подробное описание форка (About Fork) -->
-    <section id="about" class="about-section">
+    <!-- Описание форка -->
+    <section id="about-section" class="about-section editable-section">
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Что такое <span class="text-red">CheelyGram</span>?</h2>
-                    <p><strong>CheelyGram</strong> - это красная параша из всего</p>
-                    <p>Проект не расчитан на собирание денег, он полностью опенсурсный</p>
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <i class="fa-solid fa-code"></i>
-                            <span>100% Открытый исходный код с скрытыми трекерами.</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fa-solid fa-user-shield"></i>
-                            <span>Улучшенные алгоритмы шифрования локальной базы данных.</span>
-                        </div>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;" data-edit-id="about-title">Что такое <span class="text-red">CheelyGram</span>?</h2>
+                    <div data-edit-id="about-text-block">
+                        <p><strong>CheelyGram</strong> — это независимая модификация (форк) официального клиента Telegram, созданная для тех, кому стандартных возможностей мессенджера уже недостаточно. Мы взяли за основу официальный открытый исходный код Telegram API и переработали его до неузнаваемости.</p>
+                        <p>Проект зародился как эстетический манифест против скучных синих интерфейсов, но быстро перерос в мощный инструмент для опытных пользователей, гиков и администраторов крупных каналов.</p>
                     </div>
                 </div>
                 <div class="about-stats-box">
                     <div class="stat-card">
-                        <h3>0+</h3>
-                        <p>Рекламы от разработчиков форка</p>
+                        <h3 data-edit-id="stat-1-val">0+</h3>
+                        <p data-edit-id="stat-1-lbl">Рекламы от разработчиков форка</p>
                     </div>
                     <div class="stat-card">
-                        <h3>2x</h3>
-                        <p>Выше лимит на кэширование медиа</p>
-                    </div>
+                        <h3 data-edit-id="stat-2-val">2x</h3>
+                        <p data-edit-id="stat-2-lbl">Выше лимит на кэширование медиа</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Преимущества (Features) -->
-    <section id="features" class="features">
+    <!-- Преимущества -->
+    <section id="features-section" class="features editable-section">
         <div class="container">
-            <h2 class="section-title">Почему выбирают <span class="text-red">CheelyGram</span>?</h2>
-            <div class="features-grid">
+            <h2 class="section-title" data-edit-id="features-title">Почему выбирают <span class="text-red">CheelyGram</span>?</h2>
+            <div class="features-grid" id="features-container">
+                <!-- Карточки -->
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
-                    <h3>Уникальный стиль</h3>
-                    <p>Эксклюзивная глубокая красная тема оформления, разработанная для снижения нагрузки на глаза в темноте.</p>
+                    <h3 contenteditable="false">Уникальный стиль</h3>
+                    <p contenteditable="false">Эксклюзивная глубокая красная тема оформления, разработанная для снижения нагрузки на глаза.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <h3>Максимальная скорость</h3>
-                    <p>Оптимизированный движок позволяет приложению работать быстрее оригинального клиента Telegram.</p>
+                    <h3 contenteditable="false">Максимальная скорость</h3>
+                    <p contenteditable="false">Оптимизированный движок позволяет приложению работать быстрее оригинала.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>Приватность+</h3>
-                    <p>Защита от слежки, обход блокировок, скрытые чаты, запрет на сохранение скриншотов и продвинутая очистка метаданных.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-language"></i></div>
-                    <h3>Продвинутый переводчик</h3>
-                    <p>Встроенный синхронный переводчик сообщений на любой язык прямо внутри диалога без задержек.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-folder-plus"></i></div>
-                    <h3>Супер-вкладки</h3>
-                    <p>Гибкая группировка чатов, каналов и ботов по кастомным папкам с возможностью установки пароля на каждую.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
-                    <h3>Мультиаккаунт 2.0</h3>
-                    <p>Поддержка подключения до 10 активных аккаунтов одновременно с мгновенным переключением.</p>
+                    <h3 contenteditable="false">Приватность+</h3>
+                    <p contenteditable="false">Защита от слежки, обход блокировок, скрытые чаты и продвинутая очистка метаданных.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Блок скачивания (Download) -->
-    <section id="download" class="download-section">
+    <!-- Скачивание -->
+    <section id="download-section" class="download-section editable-section">
         <div class="container download-container">
-            <h2>Готов прокачать свой <span class="text-red">Telegram</span>?</h2>
-            <p>Выберите вашу платформу ниже. Скачивание начнется автоматически.</p>
+            <h2 data-edit-id="download-title">Готов прокачать свой <span class="text-red">Telegram</span>?</h2>
+            <p data-edit-id="download-desc">Выберите вашу платформу ниже. Скачивание начнется автоматически.</p>
             <div class="download-links">
-                <!-- Ссылка на APK для Android -->
                 <a href="android.apk" download="CheelyGram_Android.apk" class="download-btn">
                     <i class="fa-brands fa-android"></i>
-                    <div>
-                        <span>Скачать для</span>
-                        <strong>Android (.APK)</strong>
-                    </div>
+                    <div><span>Скачать для</span><strong>Android (.APK)</strong></div>
                 </a>
-                <!-- Ссылка на EXE для Windows -->
                 <a href="windows.exe" download="CheelyGram_Windows.exe" class="download-btn">
                     <i class="fa-brands fa-windows"></i>
-                    <div>
-                        <span>Скачать для</span>
-                        <strong>Windows (.EXE)</strong>
-                    </div>
+                    <div><span>Скачать для</span><strong>Windows (.EXE)</strong></div>
                 </a>
-                <!-- Ссылка на AppImage для Linux -->
                 <a href="linux.AppImage" download="CheelyGram_Linux.AppImage" class="download-btn">
                     <i class="fa-brands fa-linux"></i>
-                    <div>
-                        <span>Скачать для</span>
-                        <strong>Linux (.AppImage)</strong>
-                    </div>
+                    <div><span>Скачать для</span><strong>Linux (.AppImage)</strong></div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Подвал (Footer) -->
+    <!-- Подвал -->
     <footer>
         <div class="container footer-container">
-            <p>&copy; 2026 CheelyGram Project. Все права защищены. <br>Этот проект разработан независимым сообществом и не связан с официальной командой Telegram FZ-LLC.</p>
+            <p>&copy; 2026 CheelyGram Project. <span id="admin-login-trigger" style="cursor:pointer; color:var(--text-gray);">Панель управления</span></p>
             <div class="socials">
                 <a href="#"><i class="fa-brands fa-telegram"></i></a>
                 <a href="#"><i class="fa-brands fa-github"></i></a>
@@ -172,5 +136,34 @@
         </div>
     </footer>
 
+    <!-- HTML КАРКАС АДМИН ПАНЕЛИ -->
+    <div id="admin-panel" class="admin-panel">
+        <div class="admin-panel-header">
+            <h3><i class="fa-solid fa-gear"></i> Режим редактирования CheelyGram</h3>
+            <button id="admin-close" class="admin-btn-close">&times;</button>
+        </div>
+        <div class="admin-panel-body">
+            <div class="admin-control-group">
+                <h4>Визуальное отображение блоков:</h4>
+                <label class="admin-switch"><input type="checkbox" id="toggle-about" checked> Блок "О форке"</label>
+                <label class="admin-switch"><input type="checkbox" id="toggle-features" checked> Блок "Преимущества"</label>
+                <label class="admin-switch"><input type="checkbox" id="toggle-download" checked> Блок "Скачивание"</label>
+            </div>
+            
+            <div class="admin-control-group">
+                <h4>Добавить преимущество (изменение):</h4>
+                <input type="text" id="new-feature-title" placeholder="Заголовок (например: Анти-Удаление)">
+                <input type="text" id="new-feature-desc" placeholder="Описание функции...">
+                <button id="add-feature-btn" class="admin-btn-action">Добавить карточку</button>
+            </div>
+
+            <p class="admin-tip"><i class="fa-solid fa-info"></i> Подсказка: Вы можете кликать прямо по тексту на сайте и редактировать его!</p>
+            
+            <button id="admin-save-all" class="admin-btn-save"><i class="fa-solid fa-floppy-disk"></i> Сохранить все изменения</button>
+        </div>
+    </div>
+
+    <!-- Логика панели (JavaScript) -->
+    <script src="admin.js"></script>
 </body>
 </html>
