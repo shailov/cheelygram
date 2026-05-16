@@ -1,407 +1,134 @@
-/* Общие настройки и переменные */
-:root {
-    --bg-dark: #0f0d0e;
-    --bg-card: #191617;
-    --red-primary: #e50914;
-    --red-hover: #b80710;
-    --red-glow: rgba(229, 9, 20, 0.4);
-    --text-white: #f5f5f7;
-    --text-gray: #a0a0a5;
-    --transition: all 0.3s ease;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    overflow-x: hidden;
-    line-height: 1.6;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.text-red {
-    color: var(--red-primary);
-    text-shadow: 0 0 15px var(--red-glow);
-}
-
-/* Шапка (Header) */
-header {
-    background-color: rgba(15, 13, 14, 0.85);
-    backdrop-filter: blur(10px);
+/* Стиль админ-панели */
+.admin-panel {
     position: fixed;
-    width: 100%;
     top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(225, 9, 20, 0.1);
+    right: -400px; /* Спрятана по умолчанию */
+    width: 350px;
+    height: 100vh;
+    background-color: #141112;
+    border-left: 2px solid var(--red-primary);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.7);
+    z-index: 9999;
+    transition: right 0.4s cubic-bezier(0.1, 1, 0.1, 1);
+    display: flex;
+    flex-direction: column;
 }
 
-.header-container {
+.admin-panel.active {
+    right: 0; /* Выезжает при активации */
+}
+
+.admin-panel-header {
+    background-color: #1c1819;
+    padding: 20px;
+    border-bottom: 1px solid rgba(229, 9, 20, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.logo-icon {
-    color: var(--red-primary);
-    margin-right: 10px;
-    font-size: 28px;
-    filter: drop-shadow(0 0 8px var(--red-primary));
-}
-
-.logo span span {
-    color: var(--red-primary);
-}
-
-nav a {
+.admin-panel-header h3 {
+    font-size: 16px;
     color: var(--text-white);
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 500;
-    transition: var(--transition);
 }
 
-nav a:hover {
-    color: var(--red-primary);
-}
-
-.btn-nav {
-    background-color: var(--red-primary);
-    padding: 8px 18px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px var(--red-glow);
-}
-
-.btn-nav:hover {
-    background-color: var(--red-hover);
-    color: var(--text-white) !important;
-    box-shadow: 0 0 15px var(--red-primary);
-}
-
-/* Главный экран (Hero) */
-.hero {
-    padding: 150px 0 80px 0;
-    background: radial-gradient(circle at top right, rgba(229, 9, 20, 0.15), transparent 50%);
-}
-
-.hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-}
-
-.hero-text {
-    flex: 1;
-}
-
-.badge {
-    background-color: rgba(229, 9, 20, 0.15);
-    border: 1px solid var(--red-primary);
-    color: var(--red-primary);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.hero-text h1 {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.hero-text p {
+.admin-btn-close {
+    background: none;
+    border: none;
     color: var(--text-gray);
-    font-size: 18px;
-    margin-bottom: 35px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-.hero-buttons {
+.admin-btn-close:hover {
+    color: var(--red-primary);
+}
+
+.admin-panel-body {
+    padding: 20px;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 25px;
+    overflow-y: auto;
 }
 
-.btn {
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
+.admin-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-control-group h4 {
+    font-size: 14px;
+    color: var(--red-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-switch {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: var(--transition);
-}
-
-.btn-primary {
-    background-color: var(--red-primary);
-    color: var(--text-white);
-    box-shadow: 0 4px 15px var(--red-glow);
-}
-
-.btn-primary:hover {
-    background-color: var(--red-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px var(--red-primary);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--text-white);
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.btn-secondary:hover {
-    background-color: rgba(255,255,255,0.05);
-    border-color: var(--red-primary);
-    transform: translateY(-2px);
-}
-
-/* Мокап телефона (Анимация интерфейса) */
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.mockup-phone {
-    width: 300px;
-    height: 500px;
-    background-color: #141112;
-    border: 4px solid #2c2527;
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(229, 9, 20, 0.1);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.mockup-header {
-    background-color: #1c1819;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(229, 9, 20, 0.2);
-    font-weight: 600;
-}
-
-.mockup-header i {
-    color: var(--red-primary);
-}
-
-.mockup-body {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
-    background: linear-gradient(135deg, #141112, #1c0506);
-}
-
-.message {
-    padding: 10px 14px;
-    border-radius: 15px;
-    font-size: 13px;
-    max-width: 85%;
-}
-
-.incoming {
-    background-color: #262022;
-    color: var(--text-white);
-    align-self: flex-start;
-    border-bottom-left-radius: 2px;
-}
-
-.outgoing {
-    background-color: var(--red-primary);
-    color: var(--text-white);
-    align-self: flex-end;
-    border-bottom-right-radius: 2px;
-    box-shadow: 0 3px 10px var(--red-glow);
-}
-
-/* Преимущества (Features) */
-.features {
-    padding: 100px 0;
-    background-color: var(--bg-card);
-}
-
-.section-title {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 60px;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.feature-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px 30px;
-    border-radius: 12px;
-    transition: var(--transition);
-    text-align: center;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(229, 9, 20, 0.4);
-    background: rgba(229, 9, 20, 0.02);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.feature-icon {
-    font-size: 40px;
-    color: var(--red-primary);
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px var(--red-glow));
-}
-
-.feature-card h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-}
-
-.feature-card p {
+    font-size: 14px;
+    cursor: pointer;
     color: var(--text-gray);
 }
 
-/* Секция скачивания (Download) */
-.download-section {
-    padding: 100px 0;
-    text-align: center;
-    background: radial-gradient(circle at bottom center, rgba(229, 9, 20, 0.1), transparent 60%);
+.admin-switch input {
+    accent-color: var(--red-primary);
 }
 
-.download-section h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-}
-
-.download-section p {
-    color: var(--text-gray);
-    margin-bottom: 50px;
-    font-size: 18px;
-}
-
-.download-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.download-btn {
+.admin-control-group input[type="text"] {
     background-color: #1c1819;
     border: 1px solid rgba(255,255,255,0.1);
-    color: var(--text-white);
-    padding: 15px 30px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-decoration: none;
-    text-align: left;
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+}
+
+.admin-control-group input[type="text"]:focus {
+    border-color: var(--red-primary);
+    outline: none;
+}
+
+.admin-btn-action {
+    background-color: transparent;
+    border: 1px solid var(--red-primary);
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
     transition: var(--transition);
 }
 
-.download-btn i {
-    font-size: 32px;
-    color: var(--red-primary);
+.admin-btn-action:hover {
+    background-color: var(--red-primary);
 }
 
-.download-btn span {
+.admin-btn-save {
+    background-color: var(--red-primary);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--red-glow);
+    transition: var(--transition);
+    margin-top: auto;
+}
+
+.admin-btn-save:hover {
+    background-color: var(--red-hover);
+    transform: translateY(-2px);
+}
+
+.admin-tip {
     font-size: 12px;
     color: var(--text-gray);
-    display: block;
-}
-
-.download-btn strong {
-    font-size: 16px;
-}
-
-.download-btn:hover {
-    border-color: var(--red-primary);
     background-color: rgba(229, 9, 20, 0.05);
-    transform: scale(1.05);
-    box-shadow: 0 5px 20px rgba(229, 9, 20, 0.2);
-}
-
-/* Подвал (Footer) */
-footer {
-    background-color: #080707;
-    padding: 40px 0;
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--text-gray);
-    font-size: 14px;
-}
-
-.socials a {
-    color: var(--text-white);
-    font-size: 22px;
-    margin-left: 20px;
-    transition: var(--transition);
-}
-
-.socials a:hover {
-    color: var(--red-primary);
-}
-
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .hero-text h1 {
-        font-size: 34px;
-    }
-    
-    .hero-buttons {
-        justify-content: center;
-    }
-    
-    nav {
-        display: none; /* Для полноценного продакшена тут обычно делают бургер-меню */
-    }
-    
-    .footer-container {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 3px solid var(--red-primary);
 }
