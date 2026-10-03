@@ -1,6 +1,6 @@
 document.getElementById('admin-login-trigger').addEventListener('click', function() {
     const password = prompt("Введите пароль администратора:");
-    if (password === "24452315Axa_") {
+    if (password === "1488228") {
         document.getElementById('admin-panel').classList.add('active');
         enableTextEditing(true);
         alert("Доступ разрешен. Теперь вы можете редактировать текст прямо на сайте и управлять блоками в панели справа.");
